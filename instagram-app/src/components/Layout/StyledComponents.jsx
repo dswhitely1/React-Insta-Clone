@@ -152,3 +152,40 @@ export const TimeStamp = styled.span`
   color: lightgray;
   padding: 0 16px;
 `;
+
+export const AddCommentSection = styled.div`
+  padding: 0 16px;
+  border-top: 1px solid #efefef;
+  font-size: 14px;
+  color: #999;
+  min-height: 56px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: center;
+  margin-top: 4px; 
+  flex-shrink: 0;  
+`;
+
+export const AddCommentInput = styled.input`
+  height: 18px;
+  color: #262626;
+  background: 0 0;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  resize: none;
+  margin: auto;
+  width: 100%;
+`;
+
+export const AddCommentButton = styled.button`
+  border: 0;
+  color: #3897f0;
+  opacity: .3;
+  display: inline;
+  padding: 0;
+  pointer-events: none;
+  background-color: white;
+  float: right;
+`;

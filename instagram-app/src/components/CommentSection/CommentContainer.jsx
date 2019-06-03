@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CommentList from './CommentList';
 
 const CommentContainer = ({comments}) => {
@@ -8,4 +9,9 @@ const CommentContainer = ({comments}) => {
         </div>
     );
 };
+
+CommentContainer.propTypes = {
+    comments: PropTypes.arrayOf(PropTypes.object),
+};
+
 export default CommentContainer;

@@ -1,9 +1,11 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 import CommentContainer from '../CommentSection/CommentContainer';
 import {
     ActionBar,
+    AddCommentSection,
     Comment,
     Image,
     Likes,
@@ -11,14 +13,16 @@ import {
     PostHeader,
     PostSection,
     TextBold,
-    Thumbnail, TimeStamp,
+    Thumbnail,
+    TimeStamp,
 } from '../Layout/StyledComponents';
+import AddComment from '../CommentSection/AddComment';
 
 const Post = props => {
     const {post} = props;
     const timeStamp = moment().fromNow();
     return (
-        <section>
+        <section className={'post'}>
             <PostHeader>
                 <PostSection className={'post-header'}>
                     <Thumbnail src={`${post.thumbnailUrl}`} alt={post.username}/>
@@ -37,10 +41,22 @@ const Post = props => {
             </Likes>
             <CommentContainer comments={post.comments}/>
             <TimeStamp>{timeStamp}</TimeStamp>
-            <hr/>
-            {/*Post a new Comment*/}
+            <AddCommentSection>
+                <AddComment/>
+            </AddCommentSection>
         </section>
     );
+};
+
+Post.propTypes = {
+    post: PropTypes.shape({
+        thumbnailUrl: PropTypes.string,
+        username: PropTypes.string,
+        imageUrl: PropTypes.string,
+        likes: PropTypes.number,
+        comments: PropTypes.arrayOf(PropTypes.object),
+    }),
+    timeStamp: PropTypes.string,
 };
 
 export default Post;
