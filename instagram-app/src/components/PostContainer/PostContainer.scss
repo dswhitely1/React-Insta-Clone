@@ -1,0 +1,26 @@
+.post-container {
+  max-width: 614px;
+  margin: auto;
+
+
+  .post-header {
+    padding: 0 16px;
+
+    span {
+      margin-left: 10px;
+    }
+  }
+
+  .action-bar {
+    div {
+      margin-left: 16px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+  .comment-section {
+    padding: 0 16px;
+  }
+}
