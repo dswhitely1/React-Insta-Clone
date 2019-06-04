@@ -24,8 +24,12 @@ class AddComment extends Component {
   };
 
   handleSubmit = e => {
+    const { comment } = this.state;
+    const { postId } = this.props;
+    console.log( comment );
     e.preventDefault();
-    this.props.addComment( this.state.comment );
+    console.log( `PostId: ${ postId }, Comment: ${ comment.username }` );
+    this.props.addComment( postId, comment );
     this.setState( {
       formValue: '',
       comment: {

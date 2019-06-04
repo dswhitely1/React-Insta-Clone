@@ -12,7 +12,6 @@ class App extends Component {
     nextCommentId: 0,
   };
 
-
   componentDidMount() {
     this.setState( { posts: data }, () => {
       let nextCommentId;
@@ -22,13 +21,30 @@ class App extends Component {
       if ( nextCommentId === undefined ) {
         nextCommentId = this.generateNextId();
       }
+      let posts;
+      if ( localStorage.getItem( 'posts' ) !== null ) {
+        posts = JSON.parse( localStorage.getItem( 'posts' ) );
+      }
+      const statePosts = posts === undefined ? data : posts;
       console.log( nextCommentId );
-      this.setState( { nextCommentId: nextCommentId } );
+      this.setState( { posts: statePosts, nextCommentId: nextCommentId } );
     } );
   }
 
   addComment = ( postId, comment ) => {
-    // this should be fun
+    const updatedState = this.state.posts.map( ( post, i ) => {
+      if ( i === postId ) {
+        return { ...post, comments: [...post.comments, comment] };
+
+      } else {
+        return post;
+      }
+    } );
+    console.log( updatedState );
+    localStorage.setItem( 'posts', JSON.stringify( updatedState ) );
+    const nextCommentId = this.state.nextCommentId + 1;
+    localStorage.setItem( 'nextCommentId', JSON.stringify( nextCommentId ) );
+    this.setState( { posts: updatedState, nextCommentId: nextCommentId } );
   };
 
   generateNextId() {
@@ -62,6 +78,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;
