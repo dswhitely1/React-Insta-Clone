@@ -1,5 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import data from './dummy-data';
+// Global Styles
+import { GlobalStyle } from './components/styles/Global';
+// Components
 import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
 
@@ -14,6 +17,7 @@ class App extends Component {
     render() {
         return (
             <div>
+              <GlobalStyle/>
                 <SearchBar/>
                 <PostContainer posts={this.state.posts}/>
             </div>

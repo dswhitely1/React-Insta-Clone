@@ -18,7 +18,7 @@
     "react-scripts": "3.0.1",
     "styled-components": "^4.2.1"
   },
-  "homepage": "https://dreamy-shaw-153ab2.netlify.com",
+  "homepage": "https://www.donwhitely.com/projects/sprint7",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

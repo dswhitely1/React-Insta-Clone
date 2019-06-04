@@ -120,15 +120,16 @@ export const Image = styled.img`
 `;
 
 export const TextBold = styled.span`
-  font-weight: 700;
+  font-weight: 600;
   font-size: 14px;
 `;
 
-export const PostHeader = styled.div`
+export const PostHeaderSection = styled.div`
   height: 60px;
   display: flex;
   justify-content: start;
   align-items: center;
+  background-color: white;
 `;
 
 export const ActionBar = styled.div`
@@ -138,19 +139,22 @@ export const ActionBar = styled.div`
   align-items: center;
   margin-top: 4px;
   padding: 0 16px;
+  background-color: white;
 `;
 
 export const Likes = styled.div`
   height: 18px;
   margin-bottom: 8px;
   padding: 0 16px;
+  background-color: white;
 `;
 
 export const TimeStamp = styled.span`
-  font-size: 14px;
-  font-weight: 100;
-  color: lightgray;
+  font-size: 1rem;
+  text-transform: uppercase;
   padding: 0 16px;
+  background-color: white;
+  color: rgb(153,153,153)
 `;
 
 export const AddCommentSection = styled.div`
@@ -165,6 +169,7 @@ export const AddCommentSection = styled.div`
   align-content: center;
   margin-top: 4px; 
   flex-shrink: 0;  
+  background-color: white;
 `;
 
 export const AddCommentInput = styled.input`
@@ -177,6 +182,7 @@ export const AddCommentInput = styled.input`
   resize: none;
   margin: auto;
   width: 100%;
+  background-color: white;
 `;
 
 export const AddCommentButton = styled.button`
@@ -188,4 +194,12 @@ export const AddCommentButton = styled.button`
   pointer-events: none;
   background-color: white;
   float: right;
+  background-color: white;
+`;
+
+export const LikedNotifications = styled.div`
+  background-repeat: no-repeat;
+  background-position: -271px -208px;
+  height: 24px;
+  width: 24px;
 `;

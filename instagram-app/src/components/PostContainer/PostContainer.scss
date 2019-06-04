@@ -1,10 +1,12 @@
 .post-container {
   max-width: 614px;
   margin: auto;
-  background-color: white;
+
   .post {
     border: 1px solid lightgray;
     margin-bottom: 60px;
+    background-color: white;
+    box-shadow: 1px 1px 10px 1px #000000;
   }
   .post-header {
     padding: 0 16px;

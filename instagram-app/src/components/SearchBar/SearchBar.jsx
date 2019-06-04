@@ -1,21 +1,19 @@
-import React, {Component} from 'react';
-
-import './SearchBar.scss';
+import React, { Component } from 'react';
+// import './SearchBar.scss';
 import {
-    Container,
-    Explore,
-    Instagram,
-    LeftContent,
-    LeftContentSpacer,
-    Logo,
-    Navigation,
-    Notifications,
-    RightContent,
-    SearchBox,
-    SearchContainer,
-    User,
+  Container,
+  Explore,
+  Instagram,
+  LeftContent,
+  LeftContentSpacer,
+  Logo,
+  Navigation,
+  Notifications,
+  RightContent,
+  SearchBox,
+  SearchContainer,
+  User,
 } from '../Layout/StyledComponents';
-
 
 class SearchBar extends Component {
     constructor(props) {

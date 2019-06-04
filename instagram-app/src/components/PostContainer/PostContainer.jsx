@@ -2,7 +2,7 @@ import React from 'react';
 import Post from './Post';
 import PropTypes from 'prop-types';
 
-import './PostContainer.scss';
+// import './PostContainer.scss';
 
 const PostContainer = ({posts}) => {
     return (
