@@ -10,12 +10,14 @@ class CommentContainer extends Component {
     super( props );
     this.state = {
       comments: [],
+      postId: '',
     };
   }
 
   componentDidMount() {
     this.setState( {
       comments: this.props.post.comments,
+      postId: this.props.post.id,
     } );
   }
 

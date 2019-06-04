@@ -12,6 +12,17 @@ class AddComment extends Component {
     },
   };
 
+
+  componentDidMount() {
+    console.log( this.props );
+    this.setState( {
+      comments: {
+        ...this.state.comments,
+        id: this.props.nextId.toString(),
+      },
+    } );
+  }
+
   handleChange = e => {
     this.setState( {
       formValue: e.target.value,
@@ -26,7 +37,6 @@ class AddComment extends Component {
       formValue: '',
       comment: {
         ...this.state.comment,
-        id: this.props.nextId.toString(),
         text: '',
       },
     } );
