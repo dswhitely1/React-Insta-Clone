@@ -9,7 +9,7 @@ import {
 
 const PostHeader = ( { post } ) => {
   return (
-    <PostHeaderSection>
+    <PostHeaderSection className={ 'post-header' }>
       <PostSection>
         <Thumbnail src={ `${ post.thumbnailUrl }` } alt={ post.username }/>
         <TextBold>{ post.username }</TextBold>

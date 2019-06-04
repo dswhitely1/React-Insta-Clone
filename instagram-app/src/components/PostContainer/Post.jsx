@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
-import moment from 'moment';
 import PropTypes from 'prop-types';
 
 import CommentContainer from '../CommentSection/CommentContainer';
-import {
-  AddCommentSection,
-  Image,
-  TimeStamp,
-} from '../Layout/StyledComponents';
-import AddComment from '../CommentSection/AddComment';
+import { Image } from '../Layout/StyledComponents';
 import PostHeader from './PostHeader';
 import PostActionBar from './PostActionBar';
 import PostLikes from './PostLikes';
@@ -34,8 +28,6 @@ class Post extends Component {
 
   render() {
     const { post } = this.props;
-    const timeStamp = moment().fromNow();
-
     return (
       <section className={ 'post' }>
         <PostHeader post={ post }/>
@@ -44,10 +36,6 @@ class Post extends Component {
                        isLiked={ this.state.isLiked }/>
         <PostLikes likes={ this.state.likes }/>
         <CommentContainer post={ post }/>
-        <TimeStamp>{ timeStamp }</TimeStamp>
-        <AddCommentSection>
-          <AddComment/>
-        </AddCommentSection>
       </section>
     );
   }
@@ -58,7 +46,10 @@ Post.propTypes = {
     imageUrl: PropTypes.string,
     likes: PropTypes.number,
   } ),
-  timeStamp: PropTypes.string,
+  state: PropTypes.shape( {
+    likes: PropTypes.number,
+    isLiked: PropTypes.bool,
+  } ),
 };
 
 export default Post;
