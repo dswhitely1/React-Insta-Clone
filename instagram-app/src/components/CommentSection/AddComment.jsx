@@ -12,21 +12,14 @@ class AddComment extends Component {
     },
   };
 
-
-  componentDidMount() {
-    console.log( this.props );
-    this.setState( {
-      comments: {
-        ...this.state.comments,
-        id: this.props.nextId.toString(),
-      },
-    } );
-  }
-
   handleChange = e => {
     this.setState( {
       formValue: e.target.value,
-      comment: { ...this.state.comment, text: e.target.value },
+      comment: {
+        ...this.state.comment,
+        text: e.target.value,
+        id: this.props.nextId.toString(),
+      },
     } );
   };
 

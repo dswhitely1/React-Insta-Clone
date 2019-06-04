@@ -7,13 +7,11 @@ import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
 
 class App extends Component {
-  constructor( props ) {
-    super( props );
-    this.state = {
-      posts: [],
-      nextCommentId: 0,
-    };
-  }
+  state = {
+    posts: [],
+    nextCommentId: 0,
+  };
+
 
   componentDidMount() {
     this.setState( { posts: data }, () => {
@@ -29,12 +27,16 @@ class App extends Component {
     } );
   }
 
+  addComment = ( postId, comment ) => {
+    // this should be fun
+  };
+
   generateNextId() {
     let indices = [];
     console.log( this.state.posts );
     this.state.posts.forEach( post => {
       post.comments.forEach( comment => {
-        indices = [ ...indices, comment.id ];
+        indices = [...indices, comment.id];
       } );
     } );
     localStorage.setItem( 'nextCommentId', (indices.length + 1).toString() );
@@ -54,6 +56,7 @@ class App extends Component {
         <SearchBar/>
         <PostContainer posts={ this.state.posts }
                        nextId={ this.state.nextCommentId }
+                       addComment={ this.addComment }
                        incrementNextId={ this.handleNextCommentId }/>
       </div>
     );

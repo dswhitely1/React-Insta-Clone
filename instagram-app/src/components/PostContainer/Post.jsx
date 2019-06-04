@@ -8,13 +8,10 @@ import PostActionBar from './PostActionBar';
 import PostLikes from './PostLikes';
 
 class Post extends Component {
-  constructor( props ) {
-    super( props );
-    this.state = {
-      likes: 0,
-      isLiked: false,
-    };
-  }
+  state = {
+    likes: 0,
+    isLiked: false,
+  };
 
   componentWillMount() {
     this.setState( { likes: this.props.post.likes } );
@@ -27,7 +24,7 @@ class Post extends Component {
 
 
   render() {
-    const { post } = this.props;
+    const { post, nextId, incrementNextId, postId } = this.props;
     return (
       <section className={ 'post' }>
         <PostHeader post={ post }/>
@@ -35,7 +32,8 @@ class Post extends Component {
         <PostActionBar isLikedToggle={ this.handleLikedToggle }
                        isLiked={ this.state.isLiked }/>
         <PostLikes likes={ this.state.likes }/>
-        <CommentContainer post={ post }/>
+        <CommentContainer post={ post } nextId={ nextId } postId={ postId }
+                          incrementNextId={ incrementNextId }/>
       </section>
     );
   }

@@ -6,27 +6,24 @@ import { AddCommentSection, TimeStamp } from '../Layout/StyledComponents';
 import AddComment from './AddComment';
 
 class CommentContainer extends Component {
-  constructor( props ) {
-    super( props );
-    this.state = {
-      comments: [],
-      postId: '',
-    };
-  }
+  state = {
+    comments: [],
+  };
 
   componentDidMount() {
     this.setState( {
       comments: this.props.post.comments,
-      postId: this.props.post.id,
     } );
   }
 
   handleAddComment = comment => {
-    this.setState( { comments: [ ...this.state.comments, comment ] } );
+    const { incrementNextId } = this.props;
+    this.setState( { comments: [...this.state.comments, comment] }, () => incrementNextId() );
   };
 
   render() {
     const { comments } = this.state;
+    const { nextId, postId } = this.props;
     const timeStamp = moment().fromNow();
     return (
       <section>
@@ -37,7 +34,7 @@ class CommentContainer extends Component {
         <TimeStamp>{ timeStamp }</TimeStamp>
         <AddCommentSection>
           <AddComment addComment={ this.handleAddComment }
-                      nextId={ this.state.comments.length + 1 }/>
+                      nextId={ nextId } postId={ postId }/>
         </AddCommentSection>
       </section>
     );
