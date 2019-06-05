@@ -5,7 +5,7 @@ import {
   PostSection,
   TextBold,
   Thumbnail,
-} from '../Layout/StyledComponents';
+} from '../styles/StyledComponents';
 
 const PostHeader = ( { post } ) => {
   return (

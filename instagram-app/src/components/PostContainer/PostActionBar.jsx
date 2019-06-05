@@ -6,7 +6,7 @@ import {
   LikedNotifications,
   Notifications,
   PostSection,
-} from '../Layout/StyledComponents';
+} from '../styles/StyledComponents';
 
 const PostActionBar = props => {
   const { isLiked, isLikedToggle } = props;

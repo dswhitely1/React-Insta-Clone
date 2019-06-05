@@ -5,11 +5,14 @@ import { GlobalStyle } from './components/styles/Global';
 // Components
 import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
+import { SearchResults } from './components/styles/StyledComponents';
 
 class App extends Component {
   state = {
     posts: [],
+    filteredPosts: [],
     nextCommentId: 0,
+    searchText: '',
   };
 
   componentDidMount() {
@@ -72,16 +75,28 @@ class App extends Component {
     this.setState( { posts: updatedState } );
   };
 
+  handleSearch = e => {
+    const filteredPosts = e.target.value !== '' ? this.state.posts.filter( post => post.username.includes( e.target.value ) ) : [];
+    this.setState( {
+      filteredPosts: filteredPosts,
+      searchText: e.target.value,
+    } );
+  };
+
   render() {
     return (
       <div>
         <GlobalStyle/>
-        <SearchBar/>
-        <PostContainer posts={ this.state.posts }
-                       nextId={ this.state.nextCommentId }
-                       addComment={ this.addComment }
-                       deleteComment={ this.handleDeleteComment }
-        />
+        <SearchBar search={ this.handleSearch }
+                   searchValue={ this.state.searchText }/>
+        { this.state.searchText !== '' && this.state.filteredPosts.length === 0 ?
+          <SearchResults><h1>No Results Found</h1></SearchResults> :
+          <PostContainer
+            posts={ this.state.searchText !== '' ? this.state.filteredPosts : this.state.posts }
+            nextId={ this.state.nextCommentId }
+            addComment={ this.addComment }
+            deleteComment={ this.handleDeleteComment }
+          /> }
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import CommentContainer from '../CommentSection/CommentContainer';
-import { Image } from '../Layout/StyledComponents';
+import { Image } from '../styles/StyledComponents';
 import PostHeader from './PostHeader';
 import PostActionBar from './PostActionBar';
 import PostLikes from './PostLikes';
@@ -44,10 +44,8 @@ Post.propTypes = {
     imageUrl: PropTypes.string,
     likes: PropTypes.number,
   } ),
-  state: PropTypes.shape( {
-    likes: PropTypes.number,
-    isLiked: PropTypes.bool,
-  } ),
+  nextId: PropTypes.number,
+  postId: PropTypes.number,
 };
 
 export default Post;

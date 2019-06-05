@@ -214,3 +214,13 @@ export const DeleteIcon = styled.div`
     transition: 1s ease-in-out;
   }
 `;
+
+export const SearchResults = styled.div`
+  margin: auto;
+  width: 100%;
+  font-size: 3.2rem;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { DeleteIcon, LeftContent, TextBold } from '../Layout/StyledComponents';
+import { DeleteIcon, LeftContent, TextBold } from '../styles/StyledComponents';
 
 const CommentList = ( { comment, deleteComment, postId } ) => {
   return (
@@ -19,6 +19,7 @@ CommentList.propTypes = {
   comment: PropTypes.shape( {
     username: PropTypes.string,
     text: PropTypes.string,
+    id: PropTypes.number,
   } ),
 };
 

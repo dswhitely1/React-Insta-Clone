@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { AddCommentButton, AddCommentInput } from '../Layout/StyledComponents';
+import { AddCommentButton, AddCommentInput } from '../styles/StyledComponents';
 
 class AddComment extends Component {
   state = {

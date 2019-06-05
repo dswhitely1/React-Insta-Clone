@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CommentList from './CommentList';
 import moment from 'moment';
-import { AddCommentSection, TimeStamp } from '../Layout/StyledComponents';
+import { AddCommentSection, TimeStamp } from '../styles/StyledComponents';
 import AddComment from './AddComment';
 
 const CommentContainer = props => {

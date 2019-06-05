@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Likes, TextBold } from '../Layout/StyledComponents';
+import { Likes, TextBold } from '../styles/StyledComponents';
 
 const PostLikes = ( { likes } ) => {
   return (
