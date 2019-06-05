@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-// import './SearchBar.scss';
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import {
   Container,
   Explore,
@@ -13,43 +14,39 @@ import {
   SearchBox,
   SearchContainer,
   User,
-} from '../Layout/StyledComponents';
+} from '../styles/StyledComponents';
 
-class SearchBar extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            formValue: '',
-        };
-    }
+const SearchBar = props => {
 
-    handleChange = e => {
-        this.setState({formValue: e.target.value});
-    };
+  const { searchText, search } = props;
+  return (
+    <Navigation>
+      <Container>
+        <LeftContent>
+          <Logo className={ 'sprite sprite-show' }/>
+          <LeftContentSpacer/>
+          <Instagram className={ 'sprite sprite-show' }/>
+        </LeftContent>
+        <SearchContainer>
+          <SearchBox value={ searchText } onChange={ search }
+                     placeholder={ 'Search' } name={ 'formValue' }
+          />
+        </SearchContainer>
+        <RightContent>
+          <Explore className={ 'sprite sprite-show' }/>
+          <Notifications className={ 'sprite sprite-show' }/>
+          <User className={ 'sprite sprite-show' }/>
+        </RightContent>
+      </Container>
+    </Navigation>
+  );
+};
 
-    render() {
-        const {formValue} = this.state;
-        return (
-            <Navigation>
-                <Container>
-                    <LeftContent>
-                        <Logo className={'sprite sprite-show'}/>
-                        <LeftContentSpacer/>
-                        <Instagram className={'sprite sprite-show'}/>
-                    </LeftContent>
-                    <SearchContainer>
-                        <SearchBox value={formValue} onChange={this.handleChange} placeholder={'Search'}/>
-                    </SearchContainer>
-                    <RightContent>
-                        <Explore className={'sprite sprite-show'}/>
-                        <Notifications className={'sprite sprite-show'}/>
-                        <User className={'sprite sprite-show'}/>
-                    </RightContent>
-                </Container>
-            </Navigation>
-        );
-    }
-}
+SearchBar.propTypes = {
+  props: PropTypes.shape( {
+    search: PropTypes.string,
+  } ),
+};
 
 export default SearchBar;
 

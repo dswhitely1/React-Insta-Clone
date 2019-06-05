@@ -2,19 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import CommentContainer from '../CommentSection/CommentContainer';
-import { Image } from '../Layout/StyledComponents';
+import { Image } from '../styles/StyledComponents';
 import PostHeader from './PostHeader';
 import PostActionBar from './PostActionBar';
 import PostLikes from './PostLikes';
 
 class Post extends Component {
-  constructor( props ) {
-    super( props );
-    this.state = {
-      likes: 0,
-      isLiked: false,
-    };
-  }
+  state = {
+    likes: 0,
+    isLiked: false,
+  };
 
   componentWillMount() {
     this.setState( { likes: this.props.post.likes } );
@@ -25,9 +22,8 @@ class Post extends Component {
     this.setState( { isLiked: !this.state.isLiked, likes: newLikes } );
   };
 
-
   render() {
-    const { post } = this.props;
+    const { post, nextId, deleteComment, postId, addComment } = this.props;
     return (
       <section className={ 'post' }>
         <PostHeader post={ post }/>
@@ -35,7 +31,9 @@ class Post extends Component {
         <PostActionBar isLikedToggle={ this.handleLikedToggle }
                        isLiked={ this.state.isLiked }/>
         <PostLikes likes={ this.state.likes }/>
-        <CommentContainer post={ post }/>
+        <CommentContainer post={ post } nextId={ nextId } postId={ postId }
+                          deleteComment={ deleteComment }
+                          addComment={ addComment }/>
       </section>
     );
   }
@@ -46,10 +44,8 @@ Post.propTypes = {
     imageUrl: PropTypes.string,
     likes: PropTypes.number,
   } ),
-  state: PropTypes.shape( {
-    likes: PropTypes.number,
-    isLiked: PropTypes.bool,
-  } ),
+  nextId: PropTypes.number,
+  postId: PropTypes.number,
 };
 
 export default Post;

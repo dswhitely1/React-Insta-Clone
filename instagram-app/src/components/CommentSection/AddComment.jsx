@@ -1,38 +1,39 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { AddCommentButton, AddCommentInput } from '../Layout/StyledComponents';
+import { AddCommentButton, AddCommentInput } from '../styles/StyledComponents';
 
 class AddComment extends Component {
   state = {
     formValue: '',
     comment: {
       id: '',
-      username: 'hamatsa', // Change to Dynamic at a Later Time
+      username: '', // Change to Dynamic at a Later Time
       text: '',
     },
   };
 
-
   componentDidMount() {
-    console.log( this.props );
-    this.setState( {
-      comments: {
-        ...this.state.comments,
-        id: this.props.nextId.toString(),
-      },
-    } );
+    const user = JSON.parse( localStorage.getItem( 'username' ) );
+    this.setState( { username: user } );
   }
 
   handleChange = e => {
     this.setState( {
       formValue: e.target.value,
-      comment: { ...this.state.comment, text: e.target.value },
+      comment: {
+        ...this.state.comment,
+        text: e.target.value,
+        id: this.props.nextId.toString(),
+        username: this.state.username,
+      },
     } );
   };
 
   handleSubmit = e => {
+    const { comment } = this.state;
+    const { postId } = this.props;
     e.preventDefault();
-    this.props.addComment( this.state.comment );
+    this.props.addComment( postId, comment );
     this.setState( {
       formValue: '',
       comment: {

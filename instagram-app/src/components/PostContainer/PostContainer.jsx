@@ -4,16 +4,22 @@ import PropTypes from 'prop-types';
 
 // import './PostContainer.scss';
 
-const PostContainer = ({posts}) => {
-    return (
-        <section className={'post-container'}>
-            {posts.map(post => <Post post={post} key={post.id}/>)}
-        </section>
-    );
+const PostContainer = ( { posts, nextId, deleteComment, addComment } ) => {
+  return (
+    <section className={ 'post-container' }>
+      { posts.map( ( post, i ) => <Post post={ post } postId={ i }
+                                        addComment={ addComment }
+                                        key={ post.id } nextId={ nextId }
+                                        deleteComment={ deleteComment }/> ) }
+    </section>
+  );
 };
 
 PostContainer.propTypes = {
-    posts: PropTypes.arrayOf(PropTypes.object),
+  props: PropTypes.shape( {
+    posts: PropTypes.arrayOf( PropTypes.object ),
+    nextId: PropTypes.number,
+  } ),
 };
 
 export default PostContainer;

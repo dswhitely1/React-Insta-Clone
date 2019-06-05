@@ -175,14 +175,13 @@ export const AddCommentSection = styled.div`
 export const AddCommentInput = styled.input`
   height: 18px;
   color: #262626;
-  background: 0 0;
   border: 0;
   outline: 0;
   padding: 0;
   resize: none;
   margin: auto;
   width: 100%;
-  background-color: white;
+  background: white 0 0;
 `;
 
 export const AddCommentButton = styled.button`
@@ -194,12 +193,34 @@ export const AddCommentButton = styled.button`
   pointer-events: none;
   background-color: white;
   float: right;
-  background-color: white;
-`;
+  `;
 
 export const LikedNotifications = styled.div`
   background-repeat: no-repeat;
   background-position: -271px -208px;
   height: 24px;
   width: 24px;
+`;
+
+export const DeleteIcon = styled.div`
+  background-repeat: no-repeat;
+  background-position: -324px -53px;
+  height: 26px;
+  width: 26px;
+  opacity: 0;
+  cursor: pointer;
+  :hover {
+    opacity: 1;
+    transition: 1s ease-in-out;
+  }
+`;
+
+export const SearchResults = styled.div`
+  margin: auto;
+  width: 100%;
+  font-size: 3.2rem;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
