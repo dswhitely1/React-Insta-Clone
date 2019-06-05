@@ -1,4 +1,15 @@
 import React, { Component } from 'react';
+import {
+  InstagramLogin,
+  InstagramPicture,
+  LoginButton,
+  LoginButtonText,
+  LoginFields,
+  LoginForm,
+  LoginInputs,
+  LoginPage,
+  LoginPageForm,
+} from '../styles/StyledComponents';
 
 class Login extends Component {
   state = {
@@ -9,23 +20,34 @@ class Login extends Component {
     this.setState( { [e.target.name]: e.target.value } );
   };
   handleSubmit = e => {
-    e.preventDefault();
+    // e.preventDefault();
     const user = JSON.stringify( this.state.username );
     localStorage.setItem( 'username', user );
-    this.props.logIn();
+    this.setState( { username: '' } );
   };
 
   render() {
     return (
 
-      <div>
-        <form onSubmit={ e => this.handleSubmit( e ) }>
-          <input value={ this.state.username } name={ 'username' }
-                 onChange={ this.handleChange }/>
-          <input/>
-          <button>Log In</button>
-        </form>
-      </div>
+      <LoginPage>
+        <LoginPageForm>
+          <InstagramLogin/>
+          <InstagramPicture/>
+          <LoginForm onSubmit={ e => this.handleSubmit( e ) }>
+            <LoginFields>
+              <LoginInputs value={ this.state.username } name={ 'username' }
+                           onChange={ this.handleChange }
+                           placeholder={ 'username' }/>
+            </LoginFields>
+            <LoginFields>
+              <LoginInputs type={ 'password' } placeholder={ 'password' }/>
+            </LoginFields>
+            <LoginButton>
+              <LoginButtonText>Log In</LoginButtonText>
+            </LoginButton>
+          </LoginForm>
+        </LoginPageForm>
+      </LoginPage>
     )
       ;
   }

@@ -18,7 +18,7 @@ import {
 
 const SearchBar = props => {
 
-  const { searchText, search } = props;
+  const { searchText, search, logOut } = props;
   return (
     <Navigation>
       <Container>
@@ -35,7 +35,7 @@ const SearchBar = props => {
         <RightContent>
           <Explore className={ 'sprite sprite-show' }/>
           <Notifications className={ 'sprite sprite-show' }/>
-          <User className={ 'sprite sprite-show' }/>
+          <User className={ 'sprite sprite-show' } onClick={ logOut }/>
         </RightContent>
       </Container>
     </Navigation>

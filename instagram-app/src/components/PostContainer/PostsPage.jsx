@@ -80,13 +80,19 @@ class PostsPage extends Component {
       searchText: e.target.value,
     } );
   };
+  handleLogOut = () => {
+    localStorage.removeItem( 'username' );
+    this.props.logOut();
+  };
 
   render() {
     return (
       <div>
         <GlobalStyle/>
         <SearchBar search={ this.handleSearch }
-                   searchValue={ this.state.searchText }/>
+                   searchValue={ this.state.searchText }
+                   logOut={ this.handleLogOut }
+        />
         { this.state.searchText !== '' && this.state.filteredPosts.length === 0 ?
           <SearchResults><h1>No Results Found</h1></SearchResults> :
           <PostContainer

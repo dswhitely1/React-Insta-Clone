@@ -14,7 +14,7 @@ const withAuthenticate = PostsPage => Login =>
       }
     }
 
-    handleLogIn = () => {
+    handleLogOut = () => {
       console.log( 'i was called' );
       if ( localStorage.getItem( 'username' ) ) {
         this.setState( { isLoggedIn: true } );
@@ -24,8 +24,8 @@ const withAuthenticate = PostsPage => Login =>
     };
 
     render() {
-      return this.state.isLoggedIn ? <PostsPage/> :
-        <Login logIn={ this.handleLogIn }/>;
+      return this.state.isLoggedIn ? <PostsPage logOut={ this.handleLogOut }/> :
+        <Login/>;
     }
 
   };
