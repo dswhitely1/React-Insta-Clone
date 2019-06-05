@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import sprite from '../../imgs/instragram_sprite.png';
 
 export const Styles = css`
   * {
@@ -32,7 +33,7 @@ export const Styles = css`
   }
   
   .sprite {
-    background-image: url(imgs/instragram_sprite.png);
+    background-image: url(${ sprite });
   }
   
   .show-sprite {

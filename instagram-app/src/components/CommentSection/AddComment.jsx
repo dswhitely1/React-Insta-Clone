@@ -7,10 +7,15 @@ class AddComment extends Component {
     formValue: '',
     comment: {
       id: '',
-      username: 'hamatsa', // Change to Dynamic at a Later Time
+      username: '', // Change to Dynamic at a Later Time
       text: '',
     },
   };
+
+  componentDidMount() {
+    const user = JSON.parse( localStorage.getItem( 'username' ) );
+    this.setState( { username: user } );
+  }
 
   handleChange = e => {
     this.setState( {
@@ -19,6 +24,7 @@ class AddComment extends Component {
         ...this.state.comment,
         text: e.target.value,
         id: this.props.nextId.toString(),
+        username: this.state.username,
       },
     } );
   };

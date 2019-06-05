@@ -19,7 +19,7 @@ CommentList.propTypes = {
   comment: PropTypes.shape( {
     username: PropTypes.string,
     text: PropTypes.string,
-    id: PropTypes.number,
+    id: PropTypes.string,
   } ),
 };
 
