@@ -74,5 +74,11 @@ export const Styles = css`
     display: flex;
     flex-grow: 1;
   }
+  .delete-icon {
+    justify-content: space-between;
+    p {
+    width: 90%;
+    }
+  }
 }
 `;

@@ -59,10 +59,17 @@ class App extends Component {
     return indices.length + 1;
   }
 
-  handleNextCommentId = () => {
-    const nextCommentId = this.state.nextCommentId + 1;
-    localStorage.setItem( 'nextCommentId', JSON.stringify( nextCommentId ) );
-    this.setState( { nextCommentId: nextCommentId } );
+  handleDeleteComment = ( postId, commentId ) => {
+    const updatedState = this.state.posts.map( ( post, i ) => {
+      if ( i === postId ) {
+        const updatedComments = post.comments.filter( comment => comment.id !== commentId );
+        return { ...post, comments: updatedComments };
+      } else {
+        return post;
+      }
+    } );
+    localStorage.setItem( 'posts', JSON.stringify( updatedState ) );
+    this.setState( { posts: updatedState } );
   };
 
   render() {
@@ -73,7 +80,8 @@ class App extends Component {
         <PostContainer posts={ this.state.posts }
                        nextId={ this.state.nextCommentId }
                        addComment={ this.addComment }
-                       incrementNextId={ this.handleNextCommentId }/>
+                       deleteComment={ this.handleDeleteComment }
+        />
       </div>
     );
   }

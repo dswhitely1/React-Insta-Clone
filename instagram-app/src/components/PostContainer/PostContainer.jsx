@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 
 // import './PostContainer.scss';
 
-const PostContainer = ( { posts, nextId, incrementNextId, addComment } ) => {
+const PostContainer = ( { posts, nextId, deleteComment, addComment } ) => {
   return (
     <section className={ 'post-container' }>
       { posts.map( ( post, i ) => <Post post={ post } postId={ i }
                                         addComment={ addComment }
                                         key={ post.id } nextId={ nextId }
-                                        incrementNextId={ incrementNextId }/> ) }
+                                        deleteComment={ deleteComment }/> ) }
     </section>
   );
 };

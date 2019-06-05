@@ -22,9 +22,8 @@ class Post extends Component {
     this.setState( { isLiked: !this.state.isLiked, likes: newLikes } );
   };
 
-
   render() {
-    const { post, nextId, incrementNextId, postId, addComment } = this.props;
+    const { post, nextId, deleteComment, postId, addComment } = this.props;
     return (
       <section className={ 'post' }>
         <PostHeader post={ post }/>
@@ -33,7 +32,7 @@ class Post extends Component {
                        isLiked={ this.state.isLiked }/>
         <PostLikes likes={ this.state.likes }/>
         <CommentContainer post={ post } nextId={ nextId } postId={ postId }
-                          incrementNextId={ incrementNextId }
+                          deleteComment={ deleteComment }
                           addComment={ addComment }/>
       </section>
     );
