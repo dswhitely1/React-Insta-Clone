@@ -7,24 +7,24 @@ const withAuthenticate = PostsPage => Login =>
     };
 
     componentDidMount() {
-      if ( localStorage.getItem( 'username' ) ) {
-        this.setState( { isLoggedIn: true } );
+      if (localStorage.getItem('username')) {
+        this.setState({ isLoggedIn: true });
       } else {
-        this.setState( { isLoggedIn: false } );
+        this.setState({ isLoggedIn: false });
       }
     }
 
     handleLogOut = () => {
-      console.log( 'i was called' );
-      if ( localStorage.getItem( 'username' ) ) {
-        this.setState( { isLoggedIn: true } );
+      console.log('i was called');
+      if (localStorage.getItem('username')) {
+        this.setState({ isLoggedIn: true });
       } else {
-        this.setState( { isLoggedIn: false } );
+        this.setState({ isLoggedIn: false });
       }
     };
 
     render() {
-      return this.state.isLoggedIn ? <PostsPage logOut={ this.handleLogOut }/> :
+      return this.state.isLoggedIn ? <PostsPage logOut={this.handleLogOut}/> :
         <Login/>;
     }
 

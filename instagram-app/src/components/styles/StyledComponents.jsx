@@ -258,7 +258,7 @@ export const InstagramLogin = styled.div`
   background-position: -94px -72px;
   height: 29px;
   width: 103px;
-  background-image: url(${ sprite });
+  background-image: url(${sprite});
   display: block;
   transform: scale(1.2);
   margin-bottom: auto;
@@ -325,7 +325,7 @@ export const InstagramPicture = styled.div`
   height: 128px;
   width: 94px;
   background-position: 0 0;
-  background-image: url(${ sprite });
+  background-image: url(${sprite});
   display:block;
   margin-top: 7px;
   margin-bottom: 7px;

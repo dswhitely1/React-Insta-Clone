@@ -33,7 +33,7 @@ export const Styles = css`
   }
   
   .sprite {
-    background-image: url(${ sprite });
+    background-image: url(${sprite});
   }
   
   .show-sprite {

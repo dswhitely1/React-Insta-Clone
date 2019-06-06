@@ -21,22 +21,22 @@ class Login extends Component {
 
   handleChange = e => {
     const checkUserField = e.target.name === 'username' && e.target.value === '';
-    console.log( checkUserField );
-    this.setState( {
+    console.log(checkUserField);
+    this.setState({
       [e.target.name]: e.target.value,
       isBlank: checkUserField,
       errorMsg: false,
-    } );
+    });
   };
 
   handleSubmit = e => {
-    if ( this.state.isBlank ) {
+    if (this.state.isBlank) {
       e.preventDefault();
-      this.setState( { errorMsg: true } );
+      this.setState({ errorMsg: true });
     } else {
-      const user = JSON.stringify( this.state.username );
-      localStorage.setItem( 'username', user );
-      this.setState( { username: '' } );
+      const user = JSON.stringify(this.state.username);
+      localStorage.setItem('username', user);
+      this.setState({ username: '' });
     }
   };
 
@@ -46,16 +46,16 @@ class Login extends Component {
         <LoginPageForm>
           <InstagramLogin/>
           <InstagramPicture/>
-          <LoginForm onSubmit={ e => this.handleSubmit( e ) }>
+          <LoginForm onSubmit={e => this.handleSubmit(e)}>
             <LoginFields>
-              <LoginInputs value={ this.state.username } name={ 'username' }
-                           onChange={ this.handleChange }
-                           placeholder={ 'username' }/>
+              <LoginInputs value={this.state.username} name={'username'}
+                           onChange={this.handleChange}
+                           placeholder={'username'}/>
             </LoginFields>
-            { this.state.errorMsg ?
-              <ErrorMessage>Must provide a username</ErrorMessage> : null };
+            {this.state.errorMsg ?
+              <ErrorMessage>Must provide a username</ErrorMessage> : null};
             <LoginFields>
-              <LoginInputs type={ 'password' } placeholder={ 'password' }/>
+              <LoginInputs type={'password'} placeholder={'password'}/>
             </LoginFields>
             <LoginButton>
               <LoginButtonText>Log In</LoginButtonText>
