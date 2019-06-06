@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+// Post Data
 import data from '../../dummy-data';
-import { GlobalStyle } from '../styles/Global';
-import SearchBar from '../SearchBar/SearchBar';
-import { SearchResults } from '../styles/StyledComponents';
+// Components
 import PostContainer from './PostContainer';
+import SearchBar from '../SearchBar/SearchBar';
+// Styles
+import { SearchResults } from '../styles/StyledComponents';
+import { GlobalStyle } from '../styles/Global';
 
 class PostsPage extends Component {
   state = {
@@ -80,28 +83,31 @@ class PostsPage extends Component {
       searchText: e.target.value,
     } );
   };
+
   handleLogOut = () => {
+    const { logOut } = this.props;
     localStorage.removeItem( 'username' );
-    this.props.logOut();
+    logOut();
   };
 
   render() {
+    const { searchText, filteredPosts, posts, nextCommentId } = this.state;
     return (
-      <div>
+      <>
         <GlobalStyle/>
         <SearchBar search={ this.handleSearch }
-                   searchValue={ this.state.searchText }
+                   searchValue={ searchText }
                    logOut={ this.handleLogOut }
         />
-        { this.state.searchText !== '' && this.state.filteredPosts.length === 0 ?
+        { searchText !== '' && filteredPosts.length === 0 ?
           <SearchResults><h1>No Results Found</h1></SearchResults> :
           <PostContainer
-            posts={ this.state.searchText !== '' ? this.state.filteredPosts : this.state.posts }
-            nextId={ this.state.nextCommentId }
+            posts={ searchText !== '' ? filteredPosts : posts }
+            nextId={ nextCommentId }
             addComment={ this.addComment }
             deleteComment={ this.handleDeleteComment }
           /> }
-      </div>
+      </>
     );
   }
 }

@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CommentList from './CommentList';
 import moment from 'moment';
-import { AddCommentSection, TimeStamp } from '../styles/StyledComponents';
+// Components
+import CommentList from './CommentList';
 import AddComment from './AddComment';
+// Styles
+import { AddCommentSection, TimeStamp } from '../styles/StyledComponents';
 
-const CommentContainer = props => {
-  const { nextId, postId, post, addComment, deleteComment } = props;
+const CommentContainer = ( { nextId, postId, post, addComment, deleteComment } ) => {
   const { comments } = post;
   const timeStamp = moment().fromNow();
   return (

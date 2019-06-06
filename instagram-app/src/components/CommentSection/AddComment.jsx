@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// Styles
 import { AddCommentButton, AddCommentInput } from '../styles/StyledComponents';
 
 class AddComment extends Component {
@@ -54,16 +54,5 @@ class AddComment extends Component {
     );
   }
 }
-
-AddComment.propTypes = {
-  state: PropTypes.shape( {
-    formValue: PropTypes.string,
-    comment: PropTypes.shape( {
-      id: PropTypes.string,
-      username: PropTypes.string,
-      text: PropTypes.string,
-    } ),
-  } ),
-};
 
 export default AddComment;

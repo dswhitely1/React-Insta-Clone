@@ -94,6 +94,11 @@ export const User = styled.div`
   height: 24px;
   width: 24px;
   margin-left: 30px;
+  cursor: pointer;
+  &:hover {
+    background-position: -271px -130px;
+    transition: 1s ease-in;
+  }
 `;
 
 export const Comment = styled.div`
@@ -277,21 +282,9 @@ export const LoginInputs = styled.input`
   margin-bottom: 1rem;
 `;
 
-export const LoginLabels = styled.label`
-  color: #999;
-  font-size: 1.2rem;
-  height: 36px;
- 
-  line-height: 36px;
-  overflow: hidden;
-  pointer-events: none;
-  position: absolute;
-  
-  text-overflow: ellipsis;
-  transform-origin: left;
-  transition: transform ease-out .1s;
-  user-select:none;
-  white-space: nowrap;
+export const ErrorMessage = styled.span`
+  text-transform: uppercase;
+  color: red;
 `;
 
 export const LoginFields = styled.div`

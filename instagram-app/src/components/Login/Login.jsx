@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  ErrorMessage,
   InstagramLogin,
   InstagramPicture,
   LoginButton,
@@ -14,21 +15,33 @@ import {
 class Login extends Component {
   state = {
     username: '',
+    isBlank: true,
+    errorMsg: false,
   };
 
   handleChange = e => {
-    this.setState( { [e.target.name]: e.target.value } );
+    const checkUserField = e.target.name === 'username' && e.target.value === '';
+    console.log( checkUserField );
+    this.setState( {
+      [e.target.name]: e.target.value,
+      isBlank: checkUserField,
+      errorMsg: false,
+    } );
   };
+
   handleSubmit = e => {
-    // e.preventDefault();
-    const user = JSON.stringify( this.state.username );
-    localStorage.setItem( 'username', user );
-    this.setState( { username: '' } );
+    if ( this.state.isBlank ) {
+      e.preventDefault();
+      this.setState( { errorMsg: true } );
+    } else {
+      const user = JSON.stringify( this.state.username );
+      localStorage.setItem( 'username', user );
+      this.setState( { username: '' } );
+    }
   };
 
   render() {
     return (
-
       <LoginPage>
         <LoginPageForm>
           <InstagramLogin/>
@@ -39,6 +52,8 @@ class Login extends Component {
                            onChange={ this.handleChange }
                            placeholder={ 'username' }/>
             </LoginFields>
+            { this.state.errorMsg ?
+              <ErrorMessage>Must provide a username</ErrorMessage> : null };
             <LoginFields>
               <LoginInputs type={ 'password' } placeholder={ 'password' }/>
             </LoginFields>
@@ -48,8 +63,7 @@ class Login extends Component {
           </LoginForm>
         </LoginPageForm>
       </LoginPage>
-    )
-      ;
+    );
   }
 }
 

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+// Components
 import CommentContainer from '../CommentSection/CommentContainer';
-import { Image } from '../styles/StyledComponents';
 import PostHeader from './PostHeader';
 import PostActionBar from './PostActionBar';
 import PostLikes from './PostLikes';
+// Styles
+import { Image } from '../styles/StyledComponents';
 
 class Post extends Component {
   state = {
@@ -24,13 +25,14 @@ class Post extends Component {
 
   render() {
     const { post, nextId, deleteComment, postId, addComment } = this.props;
+    const { isLiked, likes } = this.state;
     return (
       <section className={ 'post' }>
         <PostHeader post={ post }/>
         <Image src={ `${ post.imageUrl }` } alt={ post.username }/>
         <PostActionBar isLikedToggle={ this.handleLikedToggle }
-                       isLiked={ this.state.isLiked }/>
-        <PostLikes likes={ this.state.likes }/>
+                       isLiked={ isLiked }/>
+        <PostLikes likes={ likes }/>
         <CommentContainer post={ post } nextId={ nextId } postId={ postId }
                           deleteComment={ deleteComment }
                           addComment={ addComment }/>

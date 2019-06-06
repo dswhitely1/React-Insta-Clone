@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// Styles
 import {
   ActionBar,
   Comment,
@@ -8,8 +9,7 @@ import {
   PostSection,
 } from '../styles/StyledComponents';
 
-const PostActionBar = props => {
-  const { isLiked, isLikedToggle } = props;
+const PostActionBar = ( { isLiked, isLikedToggle } ) => {
   return (
     <ActionBar>
       <PostSection className={ 'action-bar' }>

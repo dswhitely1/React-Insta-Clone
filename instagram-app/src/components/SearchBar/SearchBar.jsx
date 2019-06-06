@@ -17,7 +17,6 @@ import {
 } from '../styles/StyledComponents';
 
 const SearchBar = props => {
-
   const { searchText, search, logOut } = props;
   return (
     <Navigation>
@@ -44,7 +43,7 @@ const SearchBar = props => {
 
 SearchBar.propTypes = {
   props: PropTypes.shape( {
-    search: PropTypes.string,
+    searchText: PropTypes.string,
   } ),
 };
 
