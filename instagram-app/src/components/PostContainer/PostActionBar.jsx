@@ -1,19 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // Styles
-import { ActionBar, Comment, LikedNotifications, Notifications, PostSection } from '../styles/StyledComponents';
+import InstagramLogos from '../styles/components/InstagramLogos';
+import Content from '../styles/components/Content';
 
 const PostActionBar = ({ isLiked, isLikedToggle }) => {
   return (
-    <ActionBar>
-      <PostSection className={'action-bar'}>
-        {isLiked ? <LikedNotifications className={'sprite sprite-show'}
-                                       onClick={isLikedToggle}/> :
-          <Notifications className={'sprite sprite-show'}
-                         onClick={isLikedToggle}/>}
-        <Comment className={'sprite sprite-show'}/>
-      </PostSection>
-    </ActionBar>
+    <Content left actionBar>
+      <Content left>
+        {isLiked ? <InstagramLogos notifications liked
+                                   onClick={isLikedToggle}/> :
+          <InstagramLogos notifications
+                          onClick={isLikedToggle}/>}
+        <InstagramLogos comment/>
+      </Content>
+    </Content>
   );
 };
 

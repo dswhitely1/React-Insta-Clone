@@ -1,7 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 // Styles
-import { Likes, TextBold } from '../styles/StyledComponents';
+import { TextBold } from '../styles/StyledComponents';
+
+
+const Likes = styled.div`
+  height: 18px;
+  margin-bottom: 8px;
+  padding: 0 16px;
+  background-color: white;
+`;
+
 
 const PostLikes = ({ likes }) => {
   return (

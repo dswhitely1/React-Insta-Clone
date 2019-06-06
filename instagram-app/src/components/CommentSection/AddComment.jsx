@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // Styles
 import { AddCommentButton, AddCommentInput } from '../styles/StyledComponents';
+import Form from '../styles/components/Form';
 
 class AddComment extends Component {
   state = {
@@ -46,11 +47,11 @@ class AddComment extends Component {
   render() {
     const { formValue } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit}>
         <AddCommentInput onChange={this.handleChange} type={'text'}
                          value={formValue} placeholder={'Add Comment'}/>
         <AddCommentButton>Post</AddCommentButton>
-      </form>
+      </Form>
     );
   }
 }

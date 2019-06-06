@@ -45,7 +45,7 @@
     "singleQuote": true,
     "jsxBracketSameLine": true,
     "jsxSingleQuote": true,
-    "printWidth": 120,
+    "printWidth": 80,
     "semi": true,
     "trailingComma": "all",
     "arrowParens": "avoid",

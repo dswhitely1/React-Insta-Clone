@@ -1,43 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  Container,
-  Explore,
-  Instagram,
-  LeftContent,
-  LeftContentSpacer,
-  Logo,
-  Navigation,
-  Notifications,
-  RightContent,
-  SearchBox,
-  SearchContainer,
-  User,
-} from '../styles/StyledComponents';
+import { SearchBox } from '../styles/StyledComponents';
+import Navbar from '../styles/components/Navbar';
+import InstagramLogos from '../styles/components/InstagramLogos';
+import Content from '../styles/components/Content';
+import styled from 'styled-components';
+import Container from '../styles/components/Container';
+
+const LeftContentSpacer = styled.div`
+  background-color: #262626;
+  height: 28px;
+  margin: 0 16px;
+  width: 1px;
+`;
 
 const SearchBar = props => {
   const { searchText, search, logOut } = props;
   return (
-    <Navigation>
-      <Container>
-        <LeftContent>
-          <Logo className={'sprite sprite-show'}/>
+    <Navbar>
+      <Container header>
+        <Content left>
+          <InstagramLogos logo/>
           <LeftContentSpacer/>
-          <Instagram className={'sprite sprite-show'}/>
-        </LeftContent>
-        <SearchContainer>
+          <InstagramLogos instagram/>
+        </Content>
+        <Container search>
           <SearchBox value={searchText} onChange={search}
                      placeholder={'Search'} name={'formValue'}
           />
-        </SearchContainer>
-        <RightContent>
-          <Explore className={'sprite sprite-show'}/>
-          <Notifications className={'sprite sprite-show'}/>
-          <User className={'sprite sprite-show'} onClick={logOut}/>
-        </RightContent>
+        </Container>
+        <Content right>
+          <InstagramLogos explore right/>
+          <InstagramLogos notifications right/>
+          <InstagramLogos user right onClick={logOut}/>
+        </Content>
       </Container>
-    </Navigation>
+    </Navbar>
   );
 };
 
