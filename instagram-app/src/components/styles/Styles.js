@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import sprite from '../../imgs/instragram_sprite.png';
 
 export const Styles = css`
   * {
@@ -32,20 +31,14 @@ export const Styles = css`
     margin-bottom: 8px;
   }
   
-  .sprite {
-    background-image: url(${sprite});
-  }
-  
-  .show-sprite {
-    display: block;
-  }
+
   
   .post-container {
   max-width: 614px;
   margin: auto;
 
   .post {
-    border: 1px solid lightgray;
+   
     margin-bottom: 60px;
     background-color: white;
     box-shadow: 1px 1px 3px #222222;

@@ -5,8 +5,13 @@ import CommentContainer from '../CommentSection/CommentContainer';
 import PostHeader from './PostHeader';
 import PostActionBar from './PostActionBar';
 import PostLikes from './PostLikes';
+import Content from '../styles/components/Content';
+import styled from 'styled-components';
 // Styles
-import { Image } from '../styles/StyledComponents';
+
+const Image = styled.img`
+  width: 100%;
+`;
 
 class Post extends Component {
   state = {
@@ -27,7 +32,7 @@ class Post extends Component {
     const { post, nextId, deleteComment, postId, addComment } = this.props;
     const { isLiked, likes } = this.state;
     return (
-      <section className={'post'}>
+      <Content post>
         <PostHeader post={post}/>
         <Image src={`${post.imageUrl}`} alt={post.username}/>
         <PostActionBar isLikedToggle={this.handleLikedToggle}
@@ -36,7 +41,7 @@ class Post extends Component {
         <CommentContainer post={post} nextId={nextId} postId={postId}
                           deleteComment={deleteComment}
                           addComment={addComment}/>
-      </section>
+      </Content>
     );
   }
 }

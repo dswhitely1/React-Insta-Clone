@@ -5,8 +5,8 @@ import data from '../../dummy-data';
 import PostContainer from './PostContainer';
 import SearchBar from '../SearchBar/SearchBar';
 // Styles
-import { SearchResults } from '../styles/StyledComponents';
 import { GlobalStyle } from '../styles/Global';
+import Content from '../styles/components/Content';
 
 class PostsPage extends Component {
   state = {
@@ -100,7 +100,7 @@ class PostsPage extends Component {
                    logOut={this.handleLogOut}
         />
         {searchText !== '' && filteredPosts.length === 0 ?
-          <SearchResults><h1>No Results Found</h1></SearchResults> :
+          <Content searchResult left><h1>No Results Found</h1></Content> :
           <PostContainer
             posts={searchText !== '' ? filteredPosts : posts}
             nextId={nextCommentId}

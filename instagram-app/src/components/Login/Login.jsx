@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import {
   ErrorMessage,
-  InstagramLogin,
-  InstagramPicture,
   LoginButton,
   LoginButtonText,
   LoginFields,
@@ -11,6 +9,7 @@ import {
   LoginPage,
   LoginPageForm,
 } from '../styles/StyledComponents';
+import InstagramLogos from '../styles/components/InstagramLogos';
 
 class Login extends Component {
   state = {
@@ -44,8 +43,8 @@ class Login extends Component {
     return (
       <LoginPage>
         <LoginPageForm>
-          <InstagramLogin/>
-          <InstagramPicture/>
+          <InstagramLogos instagram login/>
+          <InstagramLogos picture/>
           <LoginForm onSubmit={e => this.handleSubmit(e)}>
             <LoginFields>
               <LoginInputs value={this.state.username} name={'username'}
